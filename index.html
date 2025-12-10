@@ -1,13 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-LL0LST5PQ5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-LL0LST5PQ5');
+</script>
+
+<meta name="description" content="Stop guessing about CBSE, ICSE, or IB. Apt Skola uses scientific psychometrics to find the perfect school board match for your child's unique learning style in 5 minutes.">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "name": "Apt Skola",
+      "url": "https://www.aptskola.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.aptskola.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Which school board is best for competitive exams like JEE and NEET?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CBSE is widely considered the most aligned with Indian competitive exams like JEE and NEET, as the syllabus for these entrance tests is largely based on the NCERT curriculum used by CBSE schools."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which school board is best for parents with transferable jobs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "CBSE is the safest option for parents with frequent transfers. It has the highest number of affiliated schools across India and abroad, ensuring seamless curriculum continuity."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Are State Board certificates valid for government jobs?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, State Board certifications are fully valid for all government jobs, competitive exams, and higher education in India, though English proficiency standards may vary."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Apt Skola | Find Your Child's Perfect School Board</title>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
-    <!-- Razorpay Checkout Script -->
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
     
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -81,6 +137,17 @@
             -webkit-font-smoothing: antialiased;
         }
         
+        /* FIX: Off-screen render class for PDF generation */
+        .off-screen-render {
+            position: absolute;
+            left: -9999px;
+            top: 0;
+            width: 800px; /* Fixed width ensures consistent PDF look */
+            display: block !important; 
+            z-index: -1;
+            background: white; /* Ensure transparent backgrounds don't turn black */
+        }
+
         /* Header (Landing Page) */
         header {
             background: var(--navy-premium);
@@ -459,8 +526,6 @@
         </defs>
     </svg>
 
-    <!-- EVENT 2: HIDDEN FEEDBACK FORM -->
-    <!-- This allows Netlify to register the fields for the second submission -->
     <form name="feedback_form" netlify netlify-honeypot="bot-field" hidden>
         <input type="text" name="parent_name" />
         <input type="email" name="parent_email" />
@@ -470,7 +535,6 @@
         <input type="text" name="nps_score" />
     </form>
 
-    <!-- Sticky Mobile CTA -->
     <div id="stickyCTA" class="sticky-cta md:hidden">
         <div class="flex flex-col">
             <span class="font-bold text-sm">Confused about boards?</span>
@@ -555,7 +619,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
-                    <!-- Essential -->
                     <div class="bg-white rounded-2xl shadow-lg border border-slate-200 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full">
                         <div class="p-8 flex-grow">
                             <h3 class="text-xl font-bold text-brand-navy mb-2">The Decision Decoder</h3>
@@ -574,7 +637,6 @@
                         </div>
                     </div>
 
-                    <!-- Premium -->
                     <div class="relative bg-white rounded-2xl shadow-xl border-2 border-brand-navy overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-2xl flex flex-col h-full z-10 scale-105 md:scale-105 my-4 md:my-0">
                         <div class="absolute top-0 right-0 left-0 bg-brand-navy text-white text-center text-xs font-bold uppercase tracking-wider py-1.5">Most Popular</div>
                         <div class="p-8 pt-10 flex-grow">
@@ -595,7 +657,6 @@
                         </div>
                     </div>
 
-                    <!-- Platinum -->
                     <div class="bg-white rounded-2xl shadow-lg border border-brand-orange/30 ring-1 ring-brand-orange/20 overflow-hidden transform transition duration-300 hover:-translate-y-2 hover:shadow-xl flex flex-col h-full">
                         <div class="p-8 flex-grow">
                             <h3 class="text-xl font-bold text-brand-navy mb-2">The Executive Advantage</h3>
@@ -618,12 +679,10 @@
             </div>
         </section>
 
-        <!-- ADDED TESTIMONIALS SECTION -->
         <section class="py-12 px-4 sm:px-6 lg:px-8 bg-slate-50" id="testimonials">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-3xl font-extrabold text-brand-navy text-center mb-10">Real Parent Stories</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <!-- Card 1 -->
                     <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
                         <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
                         <h3 class="text-lg font-bold text-brand-navy mb-2">"Saved ₹25,000 on Admission"</h3>
@@ -633,8 +692,7 @@
                             <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">Verified Parent</span>
                         </div>
                     </div>
-                    <!-- Card 2 -->
-                     <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
                         <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
                         <h3 class="text-lg font-bold text-brand-navy mb-2">"3 Weeks of Research in 10 Mins"</h3>
                         <p class="text-slate-600 text-sm mb-4">"I had 15 tabs open and was totally confused. This report gave me the answer in 10 minutes. The 'Fee Forecaster' was a reality check."</p>
@@ -643,8 +701,7 @@
                             <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-semibold">Verified Parent</span>
                         </div>
                     </div>
-                    <!-- Card 3 -->
-                     <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
+                    <div class="bg-white p-6 rounded-2xl shadow-md border border-slate-200">
                         <div class="text-yellow-400 text-xl mb-3">⭐⭐⭐⭐⭐</div>
                         <h3 class="text-lg font-bold text-brand-navy mb-2">"The "Library Prop""</h3>
                         <p class="text-slate-600 text-sm mb-4">"We loved the campus tour, but then I used the 'Library Test' from the toolkit. I looked closely and realized the books were covered in dust and mostly encyclopedias nobody reads. It was a prop, not a library. We chose a school that actually cares about reading."</p>
@@ -657,12 +714,10 @@
             </div>
         </section>
 
-        <!-- ADDED CONTACT AND POLICIES SECTION -->
         <section id="contact-and-policies" class="py-12 px-4 sm:px-6 lg:px-8 bg-white border-t border-slate-200">
             <div class="max-w-7xl mx-auto">
                 <h2 class="text-2xl font-bold text-brand-navy mb-8 text-center">Contact & Policies</h2>
                 
-                <!-- Expanded Contact Block to fill the top row -->
                 <div id="contact" class="mb-10 p-6 bg-brand-light rounded-xl border border-slate-200 text-center">
                     <h3 class="text-xl font-bold text-brand-navy mb-4">Contact Apt Skola</h3>
                     <p class="text-slate-600">For urgent inquiries regarding our reports or services:</p>
@@ -680,7 +735,6 @@
                     </p>
                 </div>
                 
-                <!-- Adjusted grid layout (3 items instead of 4) -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
                     <div id="privacy">
                         <h4 class="text-lg font-bold text-brand-navy mb-2 border-b-2 border-brand-orange pb-1">Privacy Policy</h4>
@@ -700,7 +754,6 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer>
             <div class="container">
                 <div class="policy-links mb-4">
@@ -712,7 +765,6 @@
         </footer>
     </div>
 
-    <!-- Question pages rendered here -->
     <div id="questionPages"></div>
 
     <div id="detailsPage" class="details-page hidden">
@@ -722,8 +774,6 @@
                 <h2>Almost There! 🎉</h2>
                 <p>Enter your details to generate your report</p>
                 
-                <!-- EVENT 1: LEAD CAPTURE FORM -->
-                <!-- Added 'data-netlify' for detection and 'form-name' hidden field for JS submission -->
                 <form id="customerForm" name="lead-capture" method="POST" data-netlify="true">
                     <input type="hidden" name="form-name" value="lead-capture" />
                     <div class="form-group"><label>Parent's Full Name *</label><input type="text" id="parentName" name="parentName" required></div>
@@ -739,7 +789,6 @@
         <div id="detailsFooter"></div>
     </div>
 
-    <!-- PAYMENT SUMMARY PAGE -->
     <div id="paymentPageContainer" class="details-page hidden"> 
         <div id="paymentHeader"></div>
         <div class="details-content-wrapper">
@@ -757,7 +806,6 @@
                 <button class="custom-cta-button" onclick="redirectToRazorpay()" style="width: 100%;" id="payButton">Pay via UPI / Card / Netbanking →</button>
                 <p id="paymentProcessing" style="text-align:center; display:none; color: var(--sunrise-primary); margin-top: 10px;">Processing payment...</p>
 
-                <!-- TRUST BADGES -->
                 <div class="trust-badge-row">
                     <div class="trust-badge-item">
                         <svg class="trust-icon" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
@@ -777,17 +825,14 @@
         <div id="paymentFooter"></div>
     </div>
 
-    <!-- SAMPLE REPORT MODAL -->
     <div id="sampleReportModal" class="sample-modal">
         <div class="sample-modal-content" onclick="event.stopPropagation()">
             <div class="close-sample" onclick="closeSampleReport()">×</div>
             <div id="sampleReportContent" style="padding: 40px; text-align: left;">
-                <!-- Content injected via JS -->
-            </div>
+                </div>
         </div>
     </div>
 
-    <!-- Error Modal -->
     <div id="paymentModal" class="payment-modal" onclick="closeModal()">
         <div class="payment-modal-content" onclick="event.stopPropagation()">
             <div class="spinner"></div>
@@ -796,21 +841,15 @@
         </div>
     </div>
 
-    <!-- Success Page -->
     <div id="successPage" class="success-page hidden">
         <div id="successHeader"></div> 
         <div class="success-content-wrapper">
-            <div class="success-container" style="text-align: center;"> <!-- Added inline style for centering within the container -->
-                <div style="font-size: 3rem; margin-bottom: 10px;">✅</div>
+            <div class="success-container" style="text-align: center;"> <div style="font-size: 3rem; margin-bottom: 10px;">✅</div>
                 <h2 style="color: var(--verified-green); margin-bottom: 15px;">Success! We have emailed a copy to you for safe keeping.</h2>
-                <!-- MODIFIED: Added style for bold and orange color -->
                 <p style='color: var(--sunrise-primary); font-size: 0.9em; margin-top: -10px; font-weight: bold;'>Your 3 weeks of research is now a 10-minute read.</p>
                 <p style="color: var(--navy-light); margin-bottom: 20px;">Welcome back, <strong id="successParentName">Parent</strong>! Here is your full report.</p>
-                <!-- UI Change: Updated button text to include Share icon/text -->
                 <button class="custom-cta-button" style="width: 100%; padding: 18px 40px; font-size: 1.2rem; margin-bottom: 30px;" onclick="downloadShareReport()" id="downloadShareBtn">Download / Share Report 📲</button>
-                <div id="reportPreview"></div>
                 
-                <!-- NEW SOCIAL SHARING SECTION -->
                 <div class="report-card mt-8" style="text-align:center; border-color: var(--sunrise-primary); background: #fff7ed;">
                     <h3 style="color:var(--navy-premium); font-weight:800; margin-bottom:15px; font-size:1.5rem;">Help Other Parents Find Clarity</h3>
                     <p style="margin-bottom:20px; color:var(--navy-light);">If Apt Skola helped you, spread the word!</p>
@@ -834,13 +873,15 @@
         <div id="successFooter"></div>
     </div>
 
+    <div id="reportPreview" class="off-screen-render"></div>
+
     <script>
         // --- CONFIG ---
         // IMPORTANT: Replace this with your actual Razorpay Key ID
-        const RAZORPAY_KEY_ID = "rzp_test_RohVnQ8xAupsLf"; 
+        const RAZORPAY_KEY_ID = "rzp_live_RpteyQJeRciEvX"; 
         
         // Prices in PAISE (1 Rupee = 100 Paise)
-        const PACKAGE_PRICES = { 'Essential': 59900, 'Premium': 149900, 'Platinum': 299900 };
+        const PACKAGE_PRICES = { 'Essential': 100, 'Premium': 100, 'Platinum': 100 };
         
         const starPath = "M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.53.044.75.72.35 1.054l-4.186 3.492a.563.563 0 00-.182.559l1.267 5.405c.126.54-.45.96-.906.658l-4.752-3.134a.563.563 0 00-.608 0l-4.752 3.134c-.456.302-1.032-.118-.906-.658l1.267-5.405a.563.563 0 00-.182-.559l-4.186-3.492c-.4-.334-.179-1.01.35-1.054l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z";
 
@@ -1407,8 +1448,8 @@
 
                     try {
                         // 2. Render report invisibly to ensure DOM elements exist for capture
+                        // FIX: This now renders to the div at the bottom of the body (visible to DOM, hidden to user)
                         renderReportToBrowser(); 
-                        // Note: renderReportToBrowser populates #reportPreview which is currently hidden but in DOM
                         
                         // 3. Generate PDF Base64 (Reusing logic from downloadShareReport but getting string)
                         const { jsPDF } = window.jspdf;
@@ -1422,28 +1463,31 @@
                         const pdfHeader = document.getElementById('pdf-header');
                         if(pdfHeader) {
                             pdfHeader.style.display = 'block'; 
+                            // FIX: Use JPEG at 0.8 quality to reduce file size significantly
                             const headerCanvas = await html2canvas(pdfHeader, { scale: 2 });
                             pdfHeader.style.display = 'none'; 
                             
-                            const headerImgData = headerCanvas.toDataURL('image/png');
+                            const headerImgData = headerCanvas.toDataURL('image/jpeg', 0.8);
                             const headerHeight = (headerCanvas.height * (pdfWidth - 2*margin)) / headerCanvas.width;
-                            pdf.addImage(headerImgData, 'PNG', margin, currentY, pdfWidth - 2*margin, headerHeight);
+                            pdf.addImage(headerImgData, 'JPEG', margin, currentY, pdfWidth - 2*margin, headerHeight);
                             currentY += headerHeight + 5;
                         }
 
                         // Iterate Cards
+                        // FIX: #reportPreview is now always accessible in DOM (not hidden by parent)
                         const cards = document.querySelectorAll('#reportPreview .report-card');
                         for (let i = 0; i < cards.length; i++) {
                             const card = cards[i];
+                            // FIX: Use JPEG at 0.8 quality
                             const canvas = await html2canvas(card, { scale: 2, backgroundColor: '#ffffff' });
-                            const imgData = canvas.toDataURL('image/png');
+                            const imgData = canvas.toDataURL('image/jpeg', 0.8);
                             const imgHeight = (canvas.height * (pdfWidth - 2*margin)) / canvas.width;
 
                             if (currentY + imgHeight > pdfHeight - margin) {
                                 pdf.addPage();
                                 currentY = margin; 
                             }
-                            pdf.addImage(imgData, 'PNG', margin, currentY, pdfWidth - 2*margin, imgHeight);
+                            pdf.addImage(imgData, 'JPEG', margin, currentY, pdfWidth - 2*margin, imgHeight);
                             currentY += imgHeight + 5; 
                         }
 
@@ -1499,7 +1543,21 @@
             document.getElementById('successPage').classList.add('active');
             document.getElementById('successParentName').innerText = customerData.parentName || 'Parent';
             
+            // Ensure report is rendered (in case skipping payment for testing)
             renderReportToBrowser();
+            
+            // FIX: Move the report from off-screen bottom back into the Success Container so the user can see it
+            const reportDiv = document.getElementById('reportPreview');
+            const successContainer = document.querySelector('.success-container');
+            const downloadBtn = document.getElementById('downloadShareBtn');
+            
+            if(reportDiv && successContainer && downloadBtn) {
+                // Remove the special off-screen class
+                reportDiv.classList.remove('off-screen-render');
+                // Move it to after the Download button
+                downloadBtn.parentNode.insertBefore(reportDiv, downloadBtn.nextSibling);
+            }
+            
             closeModal(); // Ensure payment modal is hidden
             window.scrollTo({ top: 0, behavior: 'instant' });
         }
@@ -1689,12 +1747,10 @@
                             `).join('')}
                         </tbody>
                     </table>
-                    <!-- NEW DISCLAIMER NOTE START -->
                     <div style="margin-top:20px; padding:10px; background-color:#fff3cd; color:#555555; font-style:italic; border-left:4px solid #333; border-radius:0 5px 5px 0; font-size:0.9rem;">
                         Expert Note on Special Needs: Generally, <strong>CBSE</strong> is recommended over ICSE for students with learning challenges due to significantly lighter syllabus volume. However, for maximum flexibility (like skipping Math or Science entirely), consider the National Institute of Open Schooling (NIOS). It is a recognizedNational Institute of Open Schooling (<strong>NIOS</strong>). It is a recognized Central Government Board in India (just like CBSE), but without the walls. or International General Certificate of Secondary Education (IGCSE) (usually Cambridge Board). The UK/International curriculum. Expensive, elite, and practical.
                     </div>
-                    <!-- NEW DISCLAIMER NOTE END -->
-                </div>
+                    </div>
 
                 <div class="report-card">
                     <div class="report-header-bg">DETAILED FEATURE COMPARISON</div>
@@ -1714,7 +1770,6 @@
                 <div class="report-card">
                     <div class="report-header-bg">YOUR SCHOOL SCOUTING TOOLKIT</div>
                     <div style="display:grid; grid-template-columns: 1fr; gap: 30px;">
-                        <!-- For mobile, single column is safer. On desktop, we could do 2 cols but html2canvas is safer with simpler layouts -->
                         <div>
                             <h3 class="narrative-theme">🧐 5-Point Observation Checklist</h3>
                             <ul style="list-style:none; padding:0;">
@@ -1899,28 +1954,29 @@
                 // Capture Header
                 const pdfHeader = document.getElementById('pdf-header');
                 pdfHeader.style.display = 'block'; 
+                // FIX: Use JPEG at 0.8 quality
                 const headerCanvas = await html2canvas(pdfHeader, { scale: 2 });
                 pdfHeader.style.display = 'none'; 
                 
-                const headerImgData = headerCanvas.toDataURL('image/png');
+                const headerImgData = headerCanvas.toDataURL('image/jpeg', 0.8);
                 const headerHeight = (headerCanvas.height * (pdfWidth - 2*margin)) / headerCanvas.width;
-                pdf.addImage(headerImgData, 'PNG', margin, currentY, pdfWidth - 2*margin, headerHeight);
+                pdf.addImage(headerImgData, 'JPEG', margin, currentY, pdfWidth - 2*margin, headerHeight);
                 currentY += headerHeight + 5;
 
                 // Iterate Cards
                 const cards = document.querySelectorAll('#reportPreview .report-card');
                 for (let i = 0; i < cards.length; i++) {
                     const card = cards[i];
-                    // Removed the check for 'browser-only' since we removed that section from renderReportToBrowser
+                    // FIX: Use JPEG at 0.8 quality
                     const canvas = await html2canvas(card, { scale: 2, backgroundColor: '#ffffff' });
-                    const imgData = canvas.toDataURL('image/png');
+                    const imgData = canvas.toDataURL('image/jpeg', 0.8);
                     const imgHeight = (canvas.height * (pdfWidth - 2*margin)) / canvas.width;
 
                     if (currentY + imgHeight > pdfHeight - margin) {
                         pdf.addPage();
                         currentY = margin; 
                     }
-                    pdf.addImage(imgData, 'PNG', margin, currentY, pdfWidth - 2*margin, imgHeight);
+                    pdf.addImage(imgData, 'JPEG', margin, currentY, pdfWidth - 2*margin, imgHeight);
                     currentY += imgHeight + 5; 
                 }
 
@@ -1961,17 +2017,20 @@
             }
         }
         
-        function shareReport() {
-             if (navigator.share) {
-                navigator.share({
-                    title: 'Apt Skola Recommendation',
-                    text: 'I just found the perfect school board for my child with Apt Skola!',
-                    url: "https://aptskola.com"
-                }).catch(console.error);
-            } else {
-                alert("Link copied to clipboard!");
-            }
-        }
+		function shareReport() {
+			if (navigator.share) {
+				// Native Share (Mobile)
+				navigator.share({
+					title: 'Apt Skola Recommendation',
+					text: 'I just found the perfect school board for my child with Apt Skola!',
+					url: "https://aptskola.com"
+				}).catch(console.error);
+			} else {
+        // Fallback (Desktop)
+        navigator.clipboard.writeText("https://aptskola.com");
+			alert("Link copied to clipboard!");
+			}
+		}
         
         // --- SOCIAL SHARING FUNCTIONS ---
         function shareToWhatsApp() {
